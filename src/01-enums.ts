@@ -1,10 +1,10 @@
-enum ROLES {
+export enum ROLES {
   ADMIN = 'admin',
   SELLER = 'seller',
   CUSTOMER = 'customer'
 };
 
-type User = {
+export type User = {
   username: string,
   role: ROLES,
 };
@@ -23,23 +23,25 @@ enum PrintMedia {
   Magazine,//2
   Book,//3
 }
-console.log(PrintMedia.Book)
-function getPrintMediaCode(mediaName: string): number {
+console.log(PrintMedia.Book)//3
+
+function getPrintMediaCode(mediaName:string): number {
   if (mediaName === 'newsletter') {
       return 5;
   }
+  return 0
 }
 
 //this will throw an error
 enum PrintMedia1 {
   Newsletter = getPrintMediaCode('newsletter'),
-  Newspaper, // Error: Enum member must have initializer
-  Book,
+  //Newspaper, // Error: Enum member must have initializer
+  //Book,
   Magazine = Newsletter * 3,
 }
 
 
-//this is how supous to be
+//this is how suppouse to be
 
 
 enum PrintMedia2 {
