@@ -1,6 +1,6 @@
 import { Product } from './product.model';
 
-//Omiy is an utility type  do as it name says omit the parameter we specify
+//Omit is an utility type  do as it name says omit the parameter we specify
 export interface CreateProductDto extends Omit<Product, 'id' | 'createdAt' | 'updatedAt' | 'category'>{
   categoryId: string;
 }
@@ -8,12 +8,17 @@ export interface CreateProductDto extends Omit<Product, 'id' | 'createdAt' | 'up
 //in this example we are telling to 'pick' the parameters we want
 type example = Pick<Product, 'color' | 'description'>;
 
+// 'partial' make optional  all parameter
 export interface UpdateProductDto extends Partial<CreateProductDto> {}
 
+//'required' make mandatory all arguments
 type example2 = Required<Product>;
 
+//does not allow to change
 export interface FindProductDto extends Readonly<Partial<Omit<Product, 'tags'>>> {
-  readonly tags: ReadonlyArray<string>;
+  //  tags: ReadonlyArray<string>; //allow  to reassign the array
+  //+ readonly
+  readonly tags: ReadonlyArray<string>; // does not allow  to reassign the array
 }
 
 type example3 = Readonly<Product>;

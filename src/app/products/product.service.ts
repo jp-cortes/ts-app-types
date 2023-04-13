@@ -26,5 +26,21 @@ export const addProduct = (data: CreateProductDto): Product => {
   return newProduct;
 }
 
-export const updateProduct = (id: string, product: UpdateProductDto ) => {}
-export const findProducts = (product: FindProductDto) => {}
+export const updateProduct = (id: string, updates: UpdateProductDto ) => {
+  const index = products.findIndex(item => item.id === id);
+  const prevData = products[index];
+  products[index] = {
+    ...prevData,
+    ...updates,
+  }
+  return products[index];
+}
+export const findProducts = (product: FindProductDto): Product[] => {
+   // code
+  // dto.color = 'blue';
+  // dto.isNew = true;
+  // dto.tags = [];
+  // dto.tags?.pop();
+  // dto.tags?.push();
+  return products;
+}

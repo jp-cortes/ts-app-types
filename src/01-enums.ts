@@ -16,7 +16,7 @@ const nickname: User = {
 };
 
 //example 2
-//by tdefaul give a number to each item from starting from zero
+//by default give a number to each item from starting from zero
 enum PrintMedia {
   Newspaper,//0
   Newsletter,//1
